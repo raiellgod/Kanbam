@@ -1,0 +1,178 @@
+
+body {
+    background-color: var(--platinum)  !important;
+}
+
+
+#cabecalho {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: var(--branco-gelo);
+}
+
+
+#new-task {
+    cursor: pointer;
+    font-size: var(--tamanho-1dot2);
+    padding: 9px 22px;
+    border-radius: 10px;
+}
+
+
+.container{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    padding: 2% 0;
+}
+
+
+.container .column {
+    width: 250px;
+    height: 600px;
+    background-color: var(--branco);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.container .column .head {
+    font-size: var(--tamanho-dot9);
+    padding: 15px;
+    text-align: center;
+    font-weight: var(--medium);
+    font-size: var(--tamanho-1dot4);
+}
+
+#fazer-head{
+    background-color: var(--lavanda);
+}
+
+#producao-head{
+    background-color: var(--celeste);
+}
+
+#teste-head{
+    background-color: var(--blush);
+}
+
+#fim-head{
+    background-color: var(--menta);
+}
+
+
+.container .column .body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.container .column .body .card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+
+}
+
+.container .column .body .card #descricao {
+    background-color: var(--branco-prateado);
+    width: 100%;
+    text-align: center;
+   }
+
+.container .column .body .card .info {
+    font-size: var(--tamanho-dot9);
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal .box {
+    background-color: rgba(255, 255, 255, .7);
+    width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#modal .box .head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+#modal .box .head span {
+    font-size: var(--tamanho-1dot2);
+    font-weight: var(--bold);
+    color: var(--pretinho);
+}
+
+#modal .box .head #editModeTitle {
+    display: none;
+}
+
+
+#modal .box .form {
+    padding: 20px;
+}
+
+#modal .box .form .form-group {
+    margin-bottom: 15px;
+}
+
+#modal .box .form label {
+    display: block;
+    font-size: var(--tamanho-1dot2);
+    margin-bottom: 5px;
+}
+
+#modal .box .form textarea, #modal .box .form select, #modal .box .form input {
+    width: 100%;
+    border-radius: 10px;
+    font-size: var(--tamanho-1dot2);
+    -webkit-box-shadow: 18px 18px 13px -10px rgba(0,0,0,0.35);
+    -moz-box-shadow: 18px 18px 13px -10px rgba(0,0,0,0.35);
+    box-shadow: 18px 18px 13px -10px rgba(0,0,0,0.35);
+    border: 1px solid #000;
+} 
+
+
+#modal .box .form textarea {
+    padding: 10px 15px;
+}
+
+#modal .box .form select {
+    padding: 10px;    
+}
+
+
+#modal .box .form input {
+    padding: 10px;
+}
+
+#modal .box .botoes {
+    display: flex;
+    justify-content: space-around;
+}
+

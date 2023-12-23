@@ -1,0 +1,153 @@
+:root {
+    --branco: #fff;
+    
+    --preto:#000;
+    
+    --pretinho:#121212;
+    
+    --vermelho2:#FE1B22;
+
+    --vermelho: #D0312D;
+
+    --vermelho-sangue: #710C04;
+
+    --blush: #BC544B;
+
+    --rosas: #E3242B;
+    
+    --verde-musgo-escuro:#162938;
+
+    --transparente:transparent;
+
+    --branco-inverno: #F0F0E8;
+
+    --branco-gelo: #F3F2ED;
+
+    --celeste: #B1FFFF;
+
+    --azul-bebe: #87D2EF;
+
+    --azul: #0101FF;
+
+    --azul-royal: #3A6AE2;
+
+    --verde-oliva: #7F7F00;
+
+    --verde-musgo: #666634;
+
+    --menta: #99FD99;
+
+    --turquesa: #CEFFCC;
+
+    --laranja: #F36920;
+
+    --laranja-fogo: #EE6224;
+
+    --laranja-goku: #E7602C;
+
+    --azul-goku: #193C6B;
+
+    --branco-prateado: #999CAB;
+
+    --laranja-royal: #F4802B;
+
+    --laranaja-abobora: #F47524;
+
+    --terracota: #E2725B;
+
+    --ouro: #d4af37;
+
+    --rose-gold: #b76e79;
+
+    --ouro-velho: #cfb53b;
+
+    --prata: #c0c0c0;
+
+    --prata-fantasma: #f8f8ff;
+
+    --branco-fumaca: #f5f5f5;
+
+    --platinum: #e5e4e2;
+
+    --prateado: #E7E7E7;
+
+    --roxo: #A32CC4;
+
+    --violeta: #710193;
+
+    --lavanda: #E39FF6;
+
+    --lilas: #B65FCF;
+
+    --berinjela: #311432;
+
+    --verde: #3CB043;
+
+    --sunshine: #FFFD37;
+
+    --amarelo-claro: #FFFFE0;
+
+    --creme: #FFFFCC;
+
+    --verde-neon: #CFFF04;
+
+    --booblebee: #FCE205;
+
+    
+    
+
+    --font-padrao: Arial, verdana, helvetica, sans-serif;
+    
+    --font-logo: 'old-london-db-normal', sans-serif;
+    
+    --font-ficha: 'pirata-one-regular', sans-serif;
+
+    --font-kalnia: 'Kalnia', serif;
+
+    --font-montserrat: 'Montserrat', sans-serif;
+
+    --font-opens_sans: 'Open Sans', sans-serif;
+
+    --font-poppins: 'Poppins', sans-serif;
+
+    --font-roboto: 'Roboto', sans-serif;
+
+    --font-sevillana: 'Sevillana', cursive;
+
+
+
+    --tituloh1: 5em;
+
+    --tituloh2: 2em;
+
+    --tamammho-ldot0:1em;
+
+    --tamanho-1dot2:1.2em;
+
+    --tamanho-1dot4:1.4em;
+
+    --tamanho-dot9:0.9em;
+
+    --tamanho-1dot6:1.6em;
+
+
+
+
+    --thin:100;
+    
+    --extrathin:200;
+    
+    --light:300;
+    
+    --regular:400;
+    
+    --medium:500;
+    
+    --semibold:600;
+    
+    --bold:700;
+    
+    --extrabold:800;
+    
+    --black:900;
+}

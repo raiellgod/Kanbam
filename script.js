@@ -12,12 +12,30 @@ const $editModeTitle = document.getElementById('editModeTitle');
 const $btnCadastro = document.getElementById('btnCadastro');
 const $btnEdit = document.getElementById('btnEdit');
 
-var taskList = [];
+var tasks = localStorage.getItem("tasks");
 
-function OpenModal(id) {
+var taskList = tasks ? JSON.parse(tasks) : [];
+
+GenerateCards();
+
+function OpenModal(data_column) {
     $modal.style.display = "flex"
 
-    if (id) {
+        $creationModeTitle.style.display = "flex";
+
+        $editModeTitle.style.display = "none";
+
+        $btnCadastro.style.display = "flex";
+
+        $btnEdit.style.display = "none";
+        
+        $columnInput.value = data_column;
+
+    }
+
+function OpenModalToEdit(id) {
+    $modal.style.display = "flex"
+
         $creationModeTitle.style.display = "none";
 
         $editModeTitle.style.display = "flex";
@@ -36,17 +54,8 @@ function OpenModal(id) {
         $descrptionInput.value = task.description;
         $priorityInput.value = task.priority;
         $deadlineInput.value = task.deadline;
-
-    } else {
-        $creationModeTitle.style.display = "flex";
-
-        $editModeTitle.style.display = "none"
-
-        $btnCadastro.style.display = "flex";
-
-        $btnEdit.style.display = "none";
-    };
-}
+        $columnInput.value = task.column;
+};
 
 function CloseModal() {
     $modal.style.display = "none";
@@ -61,10 +70,10 @@ function CloseModal() {
 
 
 function resertColumns() {
-    document.querySelector(`[data-column ="1"] .body`).innerHTML = '';
-    document.querySelector(`[data-column ="2"] .body`).innerHTML = '';
-    document.querySelector(`[data-column ="3"] .body`).innerHTML = '';
-    document.querySelector(`[data-column ="4"] .body`).innerHTML = '';
+    document.querySelector(`[data-column ="1"] .body .cards_list`).innerHTML = '';
+    document.querySelector(`[data-column ="2"] .body .cards_list`).innerHTML = '';
+    document.querySelector(`[data-column ="3"] .body .cards_list`).innerHTML = '';
+    document.querySelector(`[data-column ="4"] .body .cards_list`).innerHTML = '';
 }
 
 
@@ -76,14 +85,15 @@ function GenerateCards() {
 
 
     taskList.forEach(function (task) {
+        
 
-        const columnBody = document.querySelector(`[data-column ="${task.column}"] .body`);
+        const columnBody = document.querySelector(`[data-column ="${task.column}"] .body .cards_list`);
 
 
 
 
         const card = `
-      <div class="card" ondblclick="OpenModal(${task.id})">
+      <div id="${task.id}" class="card" ondblclick="OpenModalToEdit(${task.id})" draggable="true" ondragstart="dragstart_handler(event);">
         <div class="info" id="descricao">
             <b>Descrição:</b>
             <span>${task.description}</span>
@@ -131,7 +141,7 @@ function CreateTask() {
 
     taskList.push(newTask);
 
-    console.log(column)
+    localStorage.setItem("tasks", JSON.stringify(taskList));
 
     CloseModal();
     GenerateCards();
@@ -154,7 +164,49 @@ function UpdateTask() {
 
     taskList[index] = task;
 
+    localStorage.setItem("tasks", JSON.stringify(taskList));
+
     CloseModal();
     GenerateCards();
 }
 
+
+function changeColumn(task_id, column_id) {
+    if (task_id && column_id) {
+      taskList = taskList.map((task) => {
+        if (task_id != task.id) return task;
+    
+        return {
+          ...task,
+          column: column_id,
+        };
+      });
+    }
+
+    localStorage.setItem("tasks", JSON.stringify(taskList));
+   
+    GenerateCards();
+  }
+  
+  function dragstart_handler(ev) {
+    console.log(ev);
+  
+    // Add the target element's id to the data transfer object
+    ev.dataTransfer.setData("my_custom_data", ev.target.id);
+    ev.dataTransfer.effectAllowed = "move";
+  }
+  
+  function dragover_handler(ev) {
+    ev.preventDefault();
+    ev.dataTransfer.dropEffect = "move";
+  }
+  
+  function drop_handler(ev) {
+    ev.preventDefault();
+    // Get the id of the target and add the moved element to the target's DOM
+    const task_id = ev.dataTransfer.getData("my_custom_data");
+    const column_id = ev.target.dataset.column;
+    
+    changeColumn(task_id, column_id);
+  }
+  

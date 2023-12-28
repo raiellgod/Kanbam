@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="R.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="resert.css">
     <link rel="stylesheet" href="root.css">
@@ -21,62 +21,62 @@
 <body>
     <header id="cabecalho">
         <h1>kabam bord</h1>
-        <button class="btn btn-outline-dark btn-lg" id="new-task" onclick="OpenModal()">Nova tarefa</button>
+        <button class="btn btn-outline-dark btn-lg" id="new-task" onclick="OpenModal('')">Nova tarefa</button>
     </header>
 
     <div class="container">
-        <div class="column" data-column="1">
-            <div class="head" id="fazer-head">
+        <div class="column" data-column="1" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+            <div class="head" id="fazer-head" ondblclick="OpenModal(1)">
                 <span> A Fazer</span>
             </div>
             <div class="body">
-                <div class="card-list">
+                <div class="cards_list">
 
                 </div>
-                <butoon>
-                    <i class="fa-solid fa-circle-plus"></i>
+                <butoon class="add_btn" >
+                    <i class="fa-solid fa-circle-plus" onclick="OpenModal(1)"></i>
                 </butoon>
             </div>
         </div>
 
-        <div class="column" data-column="2">
-            <div class="head" id="producao-head">
+        <div class="column" data-column="2" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+            <div class="head" id="producao-head" ondblclick="OpenModal(2)">
                 <span> Em produção</span>
             </div>
             <div class="body">
-                <div class="card-list">
+                <div class="cards_list">
 
                 </div>
-                <butoon>
-                    <i class="fa-solid fa-circle-plus"></i>
+                <butoon class="add_btn" >
+                    <i class="fa-solid fa-circle-plus" onclick="OpenModal(2)"></i>
                 </butoon>
             </div>
         </div>
 
-        <div class="column" data-column="3">
-            <div class="head" id="teste-head">
+        <div class="column" data-column="3" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+            <div class="head" id="teste-head" ondblclick="OpenModal(3)">
                 <span> Teste</span>
             </div>
             <div class="body">
-                <div class="card-list">
+                <div class="cards_list">
 
                 </div>
-                <butoon>
-                    <i class="fa-solid fa-circle-plus"></i>
+                <butoon class="add_btn" >
+                    <i class="fa-solid fa-circle-plus" onclick="OpenModal(3)"></i>
                 </butoon>
             </div>
         </div>
 
-        <div class="column" data-column="4">
-            <div class="head" id="fim-head">
+        <div class="column" data-column="4" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+            <div class="head" id="fim-head" ondblclick="OpenModal(4)">
                 <span> Finalizado</span>
             </div>
             <div class="body">
-                <div class="card-list">
+                <div class="cards_list">
 
                 </div>
-                <butoon>
-                    <i class="fa-solid fa-circle-plus"></i>
+                <butoon class="add_btn" >
+                    <i class="fa-solid fa-circle-plus" onclick="OpenModal(4)"></i>
                 </butoon>
             </div>
         </div>

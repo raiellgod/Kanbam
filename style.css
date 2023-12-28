@@ -1,6 +1,5 @@
-
 body {
-    background-color: var(--platinum)  !important;
+    background-color: var(--platinum) !important;
 }
 
 
@@ -22,7 +21,7 @@ body {
 }
 
 
-.container{
+.container {
     display: flex;
     gap: 30px;
     justify-content: center;
@@ -36,6 +35,8 @@ body {
     background-color: var(--branco);
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .container .column .head {
@@ -46,38 +47,53 @@ body {
     font-size: var(--tamanho-1dot4);
 }
 
-#fazer-head{
+#fazer-head {
     background-color: var(--lavanda);
 }
 
-#producao-head{
+#producao-head {
     background-color: var(--celeste);
 }
 
-#teste-head{
+#teste-head {
     background-color: var(--blush);
 }
 
-#fim-head{
+#fim-head {
     background-color: var(--menta);
 }
 
 
-.container .column .body {
+.container .column .body .cards_list{
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 20px;
 }
 
-.container .column .body .card{
+
+.container .column .body .add_btn {
+    background: none;
+    outline: none;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.container .column .body{
+    overflow-y: auto;
+}
+
+
+
+.container .column .body .card {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     flex-direction: column;
     gap: 10px;
-    padding: 10px;
+    
 
 }
 
@@ -85,7 +101,7 @@ body {
     background-color: var(--branco-prateado);
     width: 100%;
     text-align: center;
-   }
+}
 
 .container .column .body .card .info {
     font-size: var(--tamanho-dot9);
@@ -147,15 +163,17 @@ body {
     margin-bottom: 5px;
 }
 
-#modal .box .form textarea, #modal .box .form select, #modal .box .form input {
+#modal .box .form textarea,
+#modal .box .form select,
+#modal .box .form input {
     width: 100%;
     border-radius: 10px;
     font-size: var(--tamanho-1dot2);
-    -webkit-box-shadow: 18px 18px 13px -10px rgba(0,0,0,0.35);
-    -moz-box-shadow: 18px 18px 13px -10px rgba(0,0,0,0.35);
-    box-shadow: 18px 18px 13px -10px rgba(0,0,0,0.35);
+    -webkit-box-shadow: 18px 18px 13px -10px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 18px 18px 13px -10px rgba(0, 0, 0, 0.35);
+    box-shadow: 18px 18px 13px -10px rgba(0, 0, 0, 0.35);
     border: 1px solid #000;
-} 
+}
 
 
 #modal .box .form textarea {
@@ -163,7 +181,7 @@ body {
 }
 
 #modal .box .form select {
-    padding: 10px;    
+    padding: 10px;
 }
 
 
@@ -175,4 +193,3 @@ body {
     display: flex;
     justify-content: space-around;
 }
-

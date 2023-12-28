@@ -1,17 +1,18 @@
 const $modal = document.getElementById('modal');
-const $description = document.getElementById('description');
-const $priority = document.getElementById('priority');
-const $deadline = document.getElementById('deadline');
+const $descrptionInput = document.getElementById('description');
+const $priorityInput = document.getElementById('priority');
+const $columnInput = document.getElementById('column');
+const $deadlineInput = document.getElementById('deadline');
 const $idInput = document.getElementById('idInput');
-const $fazerBody = document.querySelector('#fazer .body');
 
-const $creationModeTitle = document.getElementById ('creationModeTitle');
-const $editModeTitle = document.getElementById ('editModeTitle');
+
+const $creationModeTitle = document.getElementById('creationModeTitle');
+const $editModeTitle = document.getElementById('editModeTitle');
 
 const $btnCadastro = document.getElementById('btnCadastro');
-const $btnEdit =document.getElementById('btnEdit');
+const $btnEdit = document.getElementById('btnEdit');
 
-var todoList = [];
+var taskList = [];
 
 function OpenModal(id) {
     $modal.style.display = "flex"
@@ -25,16 +26,16 @@ function OpenModal(id) {
 
         $btnEdit.style.display = "flex";
 
-        const index = todoList.findIndex(function(task) {
+        const index = taskList.findIndex(function (task) {
             return task.id = id;
         });
 
-        const task = todoList[index];
+        const task = taskList[index];
 
         $idInput.value = task.id;
-        $description.value = task.description;
-        $priority.value = task.priority;
-        $deadline.value = task.deadline;
+        $descrptionInput.value = task.description;
+        $priorityInput.value = task.priority;
+        $deadlineInput.value = task.deadline;
 
     } else {
         $creationModeTitle.style.display = "flex";
@@ -51,15 +52,37 @@ function CloseModal() {
     $modal.style.display = "none";
 
     $idInput.valeu = "";
-    $description.value = "";
-    $priority.value = "";
-    $deadline.value = "";
+    $descrptionInput.value = "";
+    $priorityInput.value = "";
+    $columnInput.value = "";
+    $deadlineInput.value = "";
 
 }
 
+
+function resertColumns() {
+    document.querySelector(`[data-column ="1"] .body`).innerHTML = '';
+    document.querySelector(`[data-column ="2"] .body`).innerHTML = '';
+    document.querySelector(`[data-column ="3"] .body`).innerHTML = '';
+    document.querySelector(`[data-column ="4"] .body`).innerHTML = '';
+}
+
+
+
 function GenerateCards() {
- const todoListHtml = todoList.map( function(task) {
-     return `
+
+
+    resertColumns();
+
+
+    taskList.forEach(function (task) {
+
+        const columnBody = document.querySelector(`[data-column ="${task.column}"] .body`);
+
+
+
+
+        const card = `
       <div class="card" ondblclick="OpenModal(${task.id})">
         <div class="info" id="descricao">
             <b>Descrição:</b>
@@ -77,33 +100,38 @@ function GenerateCards() {
         </div>
       </div>
      `;
- });
 
- $fazerBody.innerHTML = todoListHtml.join('');
+        columnBody.innerHTML += card;
+    });
 
-//  if(task.priority == Alta ) {
-//     card.style.background_color = "#D0312D"
-//  } else{
-//     if (task.priority == Média) {
-//         card.style.background_color = "#FCE205"
-//     } else {
-//         card.style.background_color = "#99FD99"
-//     }
-//  }
+
+
+    //  if(task.priority == Alta ) {
+    //     card.style.background_color = "#D0312D"
+    //  } else{
+    //     if (task.priority == Média) {
+    //         card.style.background_color = "#FCE205"
+    //     } else {
+    //         card.style.background_color = "#99FD99"
+    //     }
+    //  }
 
 }
 
 
 function CreateTask() {
-    
+
     const newTask = {
         id: Math.floor(Math.random() * 999999999),
-        description: $description.value,
-        priority: $priority.value,
-        deadline: $deadline.value
+        description: $descrptionInput.value,
+        priority: $priorityInput.value,
+        column: $columnInput.value,
+        deadline: $deadlineInput.value
     }
 
-    todoList.push(newTask);
+    taskList.push(newTask);
+
+    console.log(column)
 
     CloseModal();
     GenerateCards();
@@ -114,16 +142,17 @@ function CreateTask() {
 function UpdateTask() {
     const task = {
         id: $idInput.value,
-        description: $description.value,
-        priority: $priority.value,
-        deadline: $deadline.value
+        description: $descrptionInput.value,
+        priority: $priorityInput.value,
+        column: $columnInput.value,
+        deadline: $deadlineInput.value
     }
 
-    const index = todoList.findIndex(function(task) {
+    const index = taskList.findIndex(function (task) {
         return task.id = $idInput.value;
     });
 
-    todoList[index] = task;
+    taskList[index] = task;
 
     CloseModal();
     GenerateCards();

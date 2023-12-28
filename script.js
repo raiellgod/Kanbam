@@ -55,6 +55,8 @@ function OpenModalToEdit(id) {
         $priorityInput.value = task.priority;
         $deadlineInput.value = task.deadline;
         $columnInput.value = task.column;
+
+        resertColumns()
 };
 
 function CloseModal() {

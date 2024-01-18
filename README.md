@@ -18,7 +18,7 @@
 - `Funcionalidade 2` `Otimização de cards`: Diferentes cores para diferentes prioridades.
 - `Funcionalidade 3` `Otimização de cards`: Adição de opção para delegar função.
 - `Funcionalidade 4` `Otimização de data`: Deixar a data no formato utilizado no Brasil.
-- `Funcionalidade 5` `Exclusção de tasks`: Excluir tasks ja finalizadas.
+- `Funcionalidade 5` `Exclusão de tasks`: Excluir tasks ja finalizadas.
 
 ## ✔️ Técnicas e tecnologias utilizadas
 

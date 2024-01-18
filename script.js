@@ -21,42 +21,42 @@ GenerateCards();
 function OpenModal(data_column) {
     $modal.style.display = "flex"
 
-        $creationModeTitle.style.display = "flex";
+    $columnInput.value = data_column;
 
-        $editModeTitle.style.display = "none";
+    $creationModeTitle.style.display = "flex";
 
-        $btnCadastro.style.display = "flex";
+    $editModeTitle.style.display = "none";
 
-        $btnEdit.style.display = "none";
+    $btnCadastro.style.display = "flex";
+
+    $btnEdit.style.display = "none";
         
-        $columnInput.value = data_column;
-
     }
 
 function OpenModalToEdit(id) {
     $modal.style.display = "flex"
 
-        $creationModeTitle.style.display = "none";
+    $creationModeTitle.style.display = "none";
 
-        $editModeTitle.style.display = "flex";
+    $editModeTitle.style.display = "flex";
 
-        $btnCadastro.style.display = "none";
+    $btnCadastro.style.display = "none";
 
-        $btnEdit.style.display = "flex";
+    $btnEdit.style.display = "flex";
 
-        const index = taskList.findIndex(function (task) {
-            return task.id = id;
-        });
+    const index = taskList.findIndex(function (task) {
+        return task.id == id;
+    });
 
-        const task = taskList[index];
+    const task = taskList[index];
 
-        $idInput.value = task.id;
-        $descrptionInput.value = task.description;
-        $priorityInput.value = task.priority;
-        $deadlineInput.value = task.deadline;
-        $columnInput.value = task.column;
+    $idInput.value = task.id;
+    $descrptionInput.value = task.description;
+    $priorityInput.value = task.priority;
+    $deadlineInput.value = task.deadline;
+    $columnInput.value = task.column;
 
-        resertColumns()
+    resertColumns()
 };
 
 function CloseModal() {
@@ -76,6 +76,7 @@ function resertColumns() {
     document.querySelector(`[data-column ="2"] .body .cards_list`).innerHTML = '';
     document.querySelector(`[data-column ="3"] .body .cards_list`).innerHTML = '';
     document.querySelector(`[data-column ="4"] .body .cards_list`).innerHTML = '';
+    document.querySelector(`[data-column ="5"] .body .cards_list`).innerHTML = '';
 }
 
 
@@ -95,7 +96,13 @@ function GenerateCards() {
 
 
         const card = `
-      <div id="${task.id}" class="card" ondblclick="OpenModalToEdit(${task.id})" draggable="true" ondragstart="dragstart_handler(event);">
+      <div 
+      id="${task.id}" 
+      class="card" 
+      ondblclick="OpenModalToEdit(${task.id})" 
+      draggable="true" 
+      ondragstart="dragstart_handler(event)">
+
         <div class="info" id="descricao">
             <b>Descrição:</b>
             <span>${task.description}</span>
@@ -116,17 +123,6 @@ function GenerateCards() {
         columnBody.innerHTML += card;
     });
 
-
-
-    //  if(task.priority == Alta ) {
-    //     card.style.background_color = "#D0312D"
-    //  } else{
-    //     if (task.priority == Média) {
-    //         card.style.background_color = "#FCE205"
-    //     } else {
-    //         card.style.background_color = "#99FD99"
-    //     }
-    //  }
 
 }
 
@@ -161,7 +157,7 @@ function UpdateTask() {
     }
 
     const index = taskList.findIndex(function (task) {
-        return task.id = $idInput.value;
+        return task.id == $idInput.value;
     });
 
     taskList[index] = task;

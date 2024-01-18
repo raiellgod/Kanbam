@@ -12,6 +12,10 @@ body {
     background-color: var(--branco-gelo);
 }
 
+#cabecalho img {
+    width: 100px;
+}
+
 
 #new-task {
     cursor: pointer;
@@ -61,6 +65,10 @@ body {
 
 #fim-head {
     background-color: var(--menta);
+}
+
+#arquivo-head {
+    background-color: var(--creme);
 }
 
 

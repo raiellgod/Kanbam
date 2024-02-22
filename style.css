@@ -100,13 +100,12 @@ body {
     align-items: center;
     border-radius: 10px;
     flex-direction: column;
-    gap: 10px;
-    
+    overflow: hidden;
 
 }
 
 .container .column .body .card #descricao {
-    background-color: var(--branco-prateado);
+    background-color: var(--prata);
     width: 100%;
     text-align: center;
 }
@@ -118,6 +117,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.container .column .body .card .baixa{
+    background-color: var(--menta);
+}
+
+.container .column .body .card .media{
+    background-color: var(--creme);
+}
+
+.container .column .body .card .alta{
+    background-color: var(--blush);
 }
 
 #modal {

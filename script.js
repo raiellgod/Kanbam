@@ -11,6 +11,7 @@ const $editModeTitle = document.getElementById('editModeTitle');
 
 const $btnCadastro = document.getElementById('btnCadastro');
 const $btnEdit = document.getElementById('btnEdit');
+const $btnDelet = document.getElementById('btnDelet');
 
 var tasks = localStorage.getItem("tasks");
 
@@ -30,6 +31,8 @@ function OpenModal(data_column) {
     $btnCadastro.style.display = "flex";
 
     $btnEdit.style.display = "none";
+
+    $btnDelet.style.display = "none";
         
     }
 
@@ -43,6 +46,8 @@ function OpenModalToEdit(id) {
     $btnCadastro.style.display = "none";
 
     $btnEdit.style.display = "flex";
+
+    $btnDelet.style.display = "flex";
 
     const index = taskList.findIndex(function (task) {
         return task.id == id;
@@ -93,6 +98,18 @@ function GenerateCards() {
         const columnBody = document.querySelector(`[data-column ="${task.column}"] .body .cards_list`);
 
 
+        var classe = "default";
+        switch(task.priority){
+          case "Baixa":
+            classe = "baixa";
+            break;
+          case "Média":
+            classe = "media";
+            break;
+          case "Alta":
+            classe = "alta";
+            break;
+        }
 
 
         const card = `
@@ -108,12 +125,12 @@ function GenerateCards() {
             <span>${task.description}</span>
         </div>
 
-        <div class="info" id="prioridade">
+        <div class="info ${classe}" id="prioridade">
             <b>Prioridade:</b>
             <span>${task.priority}</span>
         </div>
 
-        <div class="info" id="data">
+        <div class="info ${classe}" id="data">
             <b>prazo:</b>
             <span>${task.deadline}</span>
         </div>
@@ -122,8 +139,6 @@ function GenerateCards() {
 
         columnBody.innerHTML += card;
     });
-
-
 }
 
 
@@ -207,4 +222,23 @@ function changeColumn(task_id, column_id) {
     
     changeColumn(task_id, column_id);
   }
-  
+
+  function deleteTask() {
+    const task = {
+      id: $idInput.value,
+      description: $descrptionInput.value,
+      priority: $priorityInput.value,
+      column: $columnInput.value,
+      deadline: $deadlineInput.value
+  }
+
+  const index = taskList.findIndex(function (task) {
+      return task.id == $idInput.value;
+  });
+  taskList.splice(index, 1);
+
+  localStorage.setItem("tasks", JSON.stringify(taskList));
+
+  CloseModal();
+  GenerateCards();
+  }
